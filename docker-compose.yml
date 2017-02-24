@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: drupal
 #    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
     volumes:
-      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - ./docker/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
 #    image: wodby/drupal-php:7.0-1.0.0
@@ -25,7 +25,7 @@ services:
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
-      - ./../src:/var/www/html
+      - ./www:/var/www/html
 #      - d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
 
   nginx:

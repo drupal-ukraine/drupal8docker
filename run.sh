@@ -20,4 +20,4 @@ docker exec -it $dockerContainerId drush dl layout_plugin-8.x-1.0-alpha23 --dest
 docker exec -it $dockerContainerId drush dl page_manager-8.x-1.0-alpha24 --destination=modules/contrib -y
 docker exec -it $dockerContainerId drush dl panels-8.x-3.0-beta5 --destination=modules/contrib -y
 docker exec -it $dockerContainerId chmod 777 -R ./
-docker exec -it $dockerContainerId drush en ctools layout_plugin page_manager panels page_manager_ui -y
+docker exec -it $dockerContainerId drush en ctools layout_plugin page_manager page_manager_ui panels -y

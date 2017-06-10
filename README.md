@@ -1,12 +1,16 @@
 # How to use
 
-1. Clone this repo.
+1. Install  docker (https://docs.docker.com/engine/installation/) and docker compose (https://docs.docker.com/compose/install/);
 
-2. Install  docker (https://docs.docker.com/engine/installation/) and docker compose (https://docs.docker.com/compose/install/)
+2. Clone this repo;
 
-3. Run in console "docker-compose up -d".
+From the repo root run in console
 
-4. chmod +x run.sh
+3. `$ chmod +x run.sh`;
+
+4. `$ ./run.sh`;
+
+5. `$ docker-compose up -d` (if you mac user see "Mac Users" sections).
   
 ## Links:
 Site will available on host: http://panels_d8.docker.localhost:8877 or http://localhost:2877
@@ -16,9 +20,9 @@ Phpmyadmin available on host:  http://pma.panels_d8.docker.localhost:8877 or htt
 Access to admin side - `admin`:`admin`
 
 ## Container access examples:
-`$ docker-compose exec php drush cr`
-`$ docker-compose exec php bash`
-`$ docker-compose exec php  drush en ctools -y`
+* Clear site cache: `$ docker-compose exec php drush cr`
+* Enter the command line: `$ docker-compose exec php bash`
+* Download and enable module ctools: `$ docker-compose exec php drush en ctools -y`
 
 ## Mac Users
 To fix Docker poor performance on macOS use the following workaround based on docker-sync project. The core idea is to replace a standard slow volume with a file synchronizer tool.

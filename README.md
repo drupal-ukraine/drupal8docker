@@ -4,7 +4,7 @@
 
 2. Install  docker (https://docs.docker.com/engine/installation/) and docker compose (https://docs.docker.com/compose/install/)
 
-3. Run in console "docker-compose up -d".
+3. Run in console "docker-compose up -d" (if you mac user see "Mac Users" sections).
 
 4. chmod +x run.sh
   
@@ -23,10 +23,10 @@ Access to admin side - `admin`:`admin`
 ## Mac Users
 To fix Docker poor performance on macOS use the following workaround based on docker-sync project. The core idea is to replace a standard slow volume with a file synchronizer tool.
 
-1.  Install the tool 
+1.  Install the tool:
 `$ gem install docker-sync`
 
-2.  Start sync container (may take up to ):
+2.  Start sync container (may take up to 10 minutes fro the first run):
 `$ docker-sync start`. Use `docker-sync stop` to stop sync.
 `$ docker-sync clean` cleanup before next run.
 
@@ -38,7 +38,7 @@ Following lines indicates the container is started:
      success  Starting Docker-Sync in the background
 ```
 
-## Then do a composer start with specific compose file 
+## Start containers with specific compose file: 
 `$ docker-compose -f docker-compose-mac.yml up -d`
 
 More info about docker-compose environment images - https://github.com/wodby/docker4drupal

@@ -38,8 +38,8 @@ services:
       PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
-#      - ./docroot/:/var/www/html
-      - codebase:/var/www/html
+      - ./docroot/:/var/www/html
+#      - codebase:/var/www/html
 
   nginx:
 # wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
@@ -55,8 +55,8 @@ services:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html
     volumes:
-#      - ./docroot/:/var/www/html
-      - codebase:/var/www/html
+      - ./docroot/:/var/www/html
+#      - codebase:/var/www/html
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
@@ -142,6 +142,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-volumes:
-  codebase:
-    external: true
+#volumes:
+#  codebase:
+#    external: true

@@ -4,20 +4,9 @@
 
 2. Install  docker (https://docs.docker.com/engine/installation/) and docker compose (https://docs.docker.com/compose/install/)
 
-3. Run in console "docker-compose up -d --build && sh run.sh".
+3. Run in console "docker-compose up -d".
 
 4. chmod +x run.sh
-
-4. Install Drupal:
- - Profile: `minimal`
- - DB user, Password, database name: `drupal`
- - Site information: 
-  - name: `panels_d8`
-  - site email: `panels_d8@example.com`
-  - SITE MAINTENANCE ACCOUNT: 
-    - user: `admin` 
-    - pass: `admin`
-    - email: `panels_d8@example.com`
   
 ## Links:
 Site will available on host: http://panels_d8.docker.localhost:8877 or http://localhost:2877
@@ -26,9 +15,10 @@ Phpmyadmin available on host:  http://pma.panels_d8.docker.localhost:8877 or htt
 
 Access to admin side - `admin`:`admin`
 
-## Container access:
-`$ docker-compose exec php cd cd web/ drush cr`
-`$ docker-compose exec -it bash`
+## Container access examples:
+`$ docker-compose exec php drush cr`
+`$ docker-compose exec php bash`
+`$ docker-compose exec php  drush en ctools -y`
 
 ## Mac Users
 To fix Docker poor performance on macOS use the following workaround based on docker-sync project. The core idea is to replace a standard slow volume with a file synchronizer tool.

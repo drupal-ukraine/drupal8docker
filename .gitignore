@@ -29,3 +29,5 @@
 /LICENSE
 /phpunit.xml.dist
 /.docker-sync/
+!/docroot/modules/panels/
+!/docroot/modules/page_manager/

@@ -9,12 +9,12 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
     volumes:
-      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - ./sqldump:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
       - ./docker-runtime/mariadb:/var/lib/mysql # I want to manage volumes manually.
 
   php:
 # 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal:8-7.1-2.1.2
+#    image: wodby/drupal:8-7.1-2.1.2
 #    image: wodby/drupal:8-7.0-2.1.2
 #    image: wodby/drupal:7-7.1-2.1.2
 #    image: wodby/drupal:7-7.0-2.1.2
@@ -23,7 +23,7 @@ services:
 #    image: wodby/drupal:6-5.3-2.1.2
 # 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
 #    image: wodby/drupal-php:7.1-2.1.0
-#    image: wodby/drupal-php:7.0-2.1.0
+    image: wodby/drupal-php:7.0-2.1.0
 #    image: wodby/drupal-php:5.6-2.1.0
 #    image: wodby/drupal-php:5.3-2.1.0
     environment:
@@ -53,7 +53,7 @@ services:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/web
+      NGINX_SERVER_ROOT: /var/www/html
     volumes:
 #      - ./docroot/:/var/www/html
       - codebase:/var/www/html

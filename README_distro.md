@@ -37,14 +37,18 @@ To fix Docker poor performance on macOS use the following workaround based on do
 `$ gem install docker-sync`
 
 2.  Start sync container (may take up to ):
-`$ docker-sync start --daemon`.
-Folowing lines indicates the container is started:
+`$ docker-sync start`. Use `docker-sync stop` to stop sync.
+`$ docker-sync clean` cleanup before next run.
+
+Following lines indicates the container is started:
 
 ```
+          ok  Starting native_osx for sync codebase
      success  Sync container started
      success  Starting Docker-Sync in the background
 ```
 
+## Then do a composer start with specific compose file 
 `$ docker-compose -f docker-compose-mac.yml up -d`
 
 More info about docker-compose environment images - https://github.com/wodby/docker4drupal

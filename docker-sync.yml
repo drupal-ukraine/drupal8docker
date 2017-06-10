@@ -2,6 +2,6 @@ version: "2"
 
 syncs:
   codebase:
-    src: './'
+    src: './docroot/'
     sync_userid: '82'
     sync_excludes: ['.gitignore', '.git/', '.idea/']

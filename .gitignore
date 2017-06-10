@@ -28,3 +28,4 @@
 /composer.lock
 /LICENSE
 /phpunit.xml.dist
+/.docker-sync/

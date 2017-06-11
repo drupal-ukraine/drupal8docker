@@ -14,7 +14,7 @@
   **For non Mac users (lucky users):**  
   `$ docker-compose up -d`;  
   **For Mac users:**  
-   Since there are know performance issue with docker shared file system  on mac, we suld do some workaround:
+   Since there are know performance issue with docker shared file system  on mac, we should do some workaround:
    1. Install the tool 
    `$ gem install docker-sync`
    

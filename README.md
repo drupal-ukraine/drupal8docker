@@ -4,13 +4,34 @@
 
 2. Clone this repo;
 
-From the repo root run in console
+3. From the repo root run in console:  
+  `$ chmod +x run.sh`;
 
-3. `$ chmod +x run.sh`;
+4. Download Drupal:  
+`$ ./run.sh`;
 
-4. `$ ./run.sh`;
+5. Build/Run the containers:  
+  **For non Mac users (lucky users):**  
+  `$ docker-compose up -d`;  
+  **For Mac users:**  
+   Since there are know performance issue with docker shared file system  on mac, we suld do some workaround:
+   1. Install the tool 
+   `$ gem install docker-sync`
+   
+   2. Start sync container (may take up to 10 mins for the first run):  
+   `$ docker-sync start`.  
+      Following lines indicates that container is started:
+      
+      ```
+                ok  Starting native_osx for sync codebase
+           success  Sync container started
+           success  Starting Docker-Sync in the background
+      ```
+    Other commands:   
+   `docker-sync stop` to stop sync container, `$ docker-sync clean` cleanup before next run.   
 
-5. `$ docker-compose up -d` (if you mac user see "Mac Users" sections).
+ Then do a composer start with specific compose file:
+ `$ docker-compose -f docker-compose-mac.yml up -d`
   
 ## Links:
 Site will available on host: http://panels_d8.docker.localhost:8877 or http://localhost:2877
@@ -19,30 +40,13 @@ Phpmyadmin available on host:  http://pma.panels_d8.docker.localhost:8877 or htt
 
 Access to admin side - `admin`:`admin`
 
-## Container access examples:
-* Clear site cache: `$ docker-compose exec php drush cr`
-* Enter the command line: `$ docker-compose exec php bash`
-* Download and enable module ctools: `$ docker-compose exec php drush en ctools -y`
+## Container commands examples:
+* Clear site cache:  
+`$ docker-compose exec php drush cr`
+* Enter the command line:  
+`$ docker-compose exec php bash`
+* Download and enable module ctools:  
+`$ docker-compose exec php drush en ctools -y`
 
-## Mac Users
-To fix Docker poor performance on macOS use the following workaround based on docker-sync project. The core idea is to replace a standard slow volume with a file synchronizer tool.
-
-1.  Install the tool 
-`$ gem install docker-sync`
-
-2.  Start sync container (may take up to ):
-`$ docker-sync start`. Use `docker-sync stop` to stop sync.
-`$ docker-sync clean` cleanup before next run.
-
-Following lines indicates the container is started:
-
-```
-          ok  Starting native_osx for sync codebase
-     success  Sync container started
-     success  Starting Docker-Sync in the background
-```
-
-## Then do a composer start with specific compose file 
-`$ docker-compose -f docker-compose-mac.yml up -d`
-
-More info about docker-compose environment images - https://github.com/wodby/docker4drupal
+Full documantation about docker4drupal - http://docs.docker4drupal.org/en/latest/.
+More info about docker-sync project - https://github.com/EugenMayer/docker-sync/.

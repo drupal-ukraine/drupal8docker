@@ -12,4 +12,4 @@ mkdir -p sites/default/files/tmp sites/default/files/private sites/default/confi
 cp ../templates/settings.php.tpl  ../docroot/sites/default/settings.php
 echo "clone panels and page_manager"
 git clone --branch 8.x-4.x https://git.drupal.org/project/panels.git modules/panels
-git clone --branch 8.x-4.x https://git.drupal.org/project/page_manager.git docroot/modules/page_manager
+git clone --branch 8.x-4.x https://git.drupal.org/project/page_manager.git modules/page_manager

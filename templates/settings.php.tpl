@@ -765,3 +765,4 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/config/sync';
+$config['system.logging']['error_level'] = 'verbose';
